@@ -28,6 +28,7 @@ import io.fabric8.kubernetes.client.BaseClient;
 import io.fabric8.kubernetes.client.Config;
 import io.fabric8.kubernetes.client.RequestConfig;
 import io.fabric8.kubernetes.client.dsl.AppsAPIGroupDSL;
+import io.fabric8.kubernetes.client.dsl.AuthenticationAPIGroupDSL;
 import io.fabric8.kubernetes.client.dsl.AutoscalingAPIGroupDSL;
 import io.fabric8.kubernetes.client.dsl.KubernetesListMixedOperation;
 import io.fabric8.kubernetes.client.dsl.MixedOperation;
@@ -525,6 +526,11 @@ public class ManagedOpenShiftClient extends BaseClient implements NamespacedOpen
   @Override
   public AutoscalingAPIGroupDSL autoscaling() {
     return delegate.autoscaling();
+  }
+
+  @Override
+  public AuthenticationAPIGroupDSL authentication() {
+    return delegate.authentication();
   }
 
   @Override
