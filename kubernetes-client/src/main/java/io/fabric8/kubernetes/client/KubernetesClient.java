@@ -25,6 +25,7 @@ import io.fabric8.kubernetes.api.model.apiextensions.CustomResourceDefinitionLis
 import io.fabric8.kubernetes.api.model.apiextensions.DoneableCustomResourceDefinition;
 import io.fabric8.kubernetes.client.dsl.AppsAPIGroupDSL;
 import io.fabric8.kubernetes.client.dsl.AuthenticationAPIGroupDSL;
+import io.fabric8.kubernetes.client.dsl.AuthorizationAPIGroupDSL;
 import io.fabric8.kubernetes.client.dsl.AutoscalingAPIGroupDSL;
 import io.fabric8.kubernetes.client.dsl.ExtensionsAPIGroupDSL;
 import io.fabric8.kubernetes.client.dsl.KubernetesListMixedOperation;
@@ -53,6 +54,8 @@ public interface KubernetesClient extends Client {
   AutoscalingAPIGroupDSL autoscaling();
 
   AuthenticationAPIGroupDSL authentication();
+
+  AuthorizationAPIGroupDSL authorization();
 
   MixedOperation<ComponentStatus, ComponentStatusList, DoneableComponentStatus, Resource<ComponentStatus, DoneableComponentStatus>> componentstatuses();
 

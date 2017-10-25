@@ -21,11 +21,13 @@ import io.fabric8.kubernetes.api.model.apiextensions.CustomResourceDefinitionLis
 import io.fabric8.kubernetes.api.model.apiextensions.DoneableCustomResourceDefinition;
 import io.fabric8.kubernetes.client.AppsAPIGroupClient;
 import io.fabric8.kubernetes.client.AuthenticationAPIGroupClient;
+import io.fabric8.kubernetes.client.AuthorizationAPIGroupClient;
 import io.fabric8.kubernetes.client.AutoscalingAPIGroupClient;
 import io.fabric8.kubernetes.client.CustomResourceList;
 import io.fabric8.kubernetes.client.RequestConfig;
 import io.fabric8.kubernetes.client.dsl.AppsAPIGroupDSL;
 import io.fabric8.kubernetes.client.dsl.AuthenticationAPIGroupDSL;
+import io.fabric8.kubernetes.client.dsl.AuthorizationAPIGroupDSL;
 import io.fabric8.kubernetes.client.dsl.AutoscalingAPIGroupDSL;
 import io.fabric8.kubernetes.client.dsl.FunctionCallable;
 import io.fabric8.kubernetes.client.dsl.LogWatch;
@@ -414,6 +416,11 @@ public class DefaultOpenShiftClient extends BaseClient implements NamespacedOpen
   @Override
   public AuthenticationAPIGroupDSL authentication() {
     return adapt(AuthenticationAPIGroupClient.class);
+  }
+
+  @Override
+  public AuthorizationAPIGroupDSL authorization() {
+    return adapt(AuthorizationAPIGroupClient.class);
   }
 
   @Override

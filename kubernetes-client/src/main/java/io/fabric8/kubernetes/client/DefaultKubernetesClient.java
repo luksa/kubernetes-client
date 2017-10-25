@@ -22,6 +22,7 @@ import io.fabric8.kubernetes.api.model.apiextensions.CustomResourceDefinitionLis
 import io.fabric8.kubernetes.api.model.apiextensions.DoneableCustomResourceDefinition;
 import io.fabric8.kubernetes.client.dsl.AppsAPIGroupDSL;
 import io.fabric8.kubernetes.client.dsl.AuthenticationAPIGroupDSL;
+import io.fabric8.kubernetes.client.dsl.AuthorizationAPIGroupDSL;
 import io.fabric8.kubernetes.client.dsl.AutoscalingAPIGroupDSL;
 import io.fabric8.kubernetes.client.dsl.ExtensionsAPIGroupDSL;
 import io.fabric8.kubernetes.client.dsl.FunctionCallable;
@@ -266,4 +267,8 @@ public class DefaultKubernetesClient extends BaseClient implements NamespacedKub
     return adapt(AuthenticationAPIGroupClient.class);
   }
 
+  @Override
+  public AuthorizationAPIGroupDSL authorization() {
+    return adapt(AuthorizationAPIGroupClient.class);
+  }
 }
